@@ -15,6 +15,26 @@ public:
         return 1;
     }
 
+    bool castle(std::vector<std::vector<Piece*>> &map, int nx, int ny)
+    {
+        if (o || ny != y && (nx != x - 2 || nx != x + 2))
+            return 0;
+        int d = nx > x ? 1 : -1;
+
+        if ((d < 0 && (map[y][0] == nullptr || map[y][0]->name != "rook")) || 
+            (d > 0 && (map[y][7] == nullptr || map[y][7]->name != "rook")))
+            return 0;
+        if (checkDeath(map))
+            return 0;
+
+        for (int i = 1; i < 3; i++) {
+            if (map[y][x + i * d] != nullptr || !checkCheck(map, x + i * d, y))
+                return 0;
+        }
+
+        return 1;
+    }
+
     bool checkDeath(std::vector<std::vector<Piece*>> &map)
     {
         int s = (color == "black") ? 1 : -1;
@@ -139,6 +159,8 @@ public:
         if (!basicCheck(map, nx, ny, c, R))
             return 0;
         if (oneAway(nx, ny) && checkCheck(map, nx, ny))
+            return 1;
+        if (castle(map, nx, ny))
             return 1;
         
         return 0;

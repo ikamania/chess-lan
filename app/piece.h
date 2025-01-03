@@ -4,6 +4,7 @@ public:
     int x;
     int y;
     bool m = 0;
+    bool o = 0; // if piece moved true
     int mx = 0;
     int my = 0;
 
@@ -63,7 +64,7 @@ public:
         
         newPiece->x = nx;
         newPiece->y = ny;
-
+        
         for (auto &line : map)
             for (auto &piece : line)
                 if (piece != nullptr && piece->color == color && piece->name == "king")
