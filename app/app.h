@@ -29,7 +29,6 @@ void runGame(Player *player, std::string &message)
     int ox;
     int oy;
 
-    bool mouseDown = false;
     bool promotion = false;
 
     Piece *selectedPiece = nullptr;
