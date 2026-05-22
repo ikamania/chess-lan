@@ -98,4 +98,6 @@ public:
     {
         return 1;
     }
+
+    virtual ~Piece() = default;
 };
