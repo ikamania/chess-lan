@@ -1,6 +1,12 @@
-# Chess Game with SFML
+# Chess Lan
 
 A **simple chess game** built in **C++** using **SFML**. The project includes a **Makefile** for easy compilation and running. SFML libraries are included in the `bin` folder, so **no extra installation** is required.
+
+---
+
+<p align="center">
+  <img src="screenshots/lan-game.png" alt="Chess LAN showcase" width="800">
+</p>
 
 ---
 
